@@ -17,17 +17,31 @@ while Q < 3 {
         
         let pref = operation.prefix(1)
         
-        if  pref == "1" {
+        var s: String.SubSequence {
             var suff = operation.suffix(from: pref.endIndex)
             suff.removeFirst()
-            let s = String(suff)
-            S.append(s)
+            return suff
+        }
+        if  pref == "1" {
+            let st = String(s)
+            S.append(st)
             print(S)
         }
         if pref == "2" {
-            S.removeLast(2)
+            S.removeLast(Int(s)!)
             print(S)
         }
+        if pref == "3" {
+            guard let k = Int(s) else { print("Incorrect command"); break }
+            let arr = Array(S)
+            for i in 0..<arr.count {
+               if i == k - 1 {
+                print(arr[i])
+               }
+            }
+        }
+        
+        
     }
     Q += 1
 }
