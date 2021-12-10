@@ -9,13 +9,15 @@ import Foundation
 
 var S = ""
 var Q = 0
-while Q < 3 {
+var U = [String]()
+
+while Q < 5 {
     
     print("Please enter operation:")
     
-    if let operation = readLine() {
+    if var operation = readLine() {
         
-        let pref = operation.prefix(1)
+        var pref = operation.prefix(1)
         
         var s: String.SubSequence {
             var suff = operation.suffix(from: pref.endIndex)
@@ -23,11 +25,13 @@ while Q < 3 {
             return suff
         }
         if  pref == "1" {
+            U.append(operation)
             let st = String(s)
             S.append(st)
             print(S)
         }
         if pref == "2" {
+            U.append(operation)
             S.removeLast(Int(s)!)
             print(S)
         }
@@ -40,11 +44,30 @@ while Q < 3 {
                }
             }
         }
-        
-        
+        if pref == "4" {
+            print("Undo...")
+            U.removeLast()
+            S.removeAll()
+            if U.isEmpty == false {
+                for i in U {
+                    operation = i
+                    pref = operation.prefix(1)
+                    if  pref == "1" {
+                        let st = String(s)
+                        S.append(st)
+                        print(S)
+                    } else if pref == "2" {
+                        S.removeLast(Int(s)!)
+                        print(S)
+                    }
+                }
+            }
+        }
     }
     Q += 1
 }
+print(S)
+print(U)
 
 
 
