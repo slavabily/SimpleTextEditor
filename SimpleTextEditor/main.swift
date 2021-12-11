@@ -11,14 +11,14 @@ var S = ""
 var Q = 0
 var U = [String]()
 
-print("Please, enter the number of operations:")
+//print("Please, enter the number of operations:")
 
 if let Q = readLine() {
     let q = Int(Q)!
     var n = 0
     
     while n < q {
-        print("Please enter operation:")
+//        print("Please enter operation:")
         
         if var operation = readLine() {
             
@@ -33,12 +33,12 @@ if let Q = readLine() {
                 U.append(operation)
                 let st = String(s)
                 S.append(st)
-                print(S)
+//                print(S)
             }
             if pref == "2" {
                 U.append(operation)
                 S.removeLast(Int(s)!)
-                print(S)
+//                print(S)
             }
             if pref == "3" {
                 guard let k = Int(s) else { print("Incorrect command"); break }
@@ -50,7 +50,7 @@ if let Q = readLine() {
                 }
             }
             if pref == "4" {
-                print("Undo...")
+//                print("Undo...")
                 U.removeLast()
                 S.removeAll()
                 if U.isEmpty == false {
@@ -60,10 +60,10 @@ if let Q = readLine() {
                         if  pref == "1" {
                             let st = String(s)
                             S.append(st)
-                            print(S)
+//                            print(S)
                         } else if pref == "2" {
                             S.removeLast(Int(s)!)
-                            print(S)
+//                            print(S)
                         }
                     }
                 }
@@ -72,7 +72,7 @@ if let Q = readLine() {
         n += 1
     }
 }
-print(U)
+//print(U)
 
 
 
